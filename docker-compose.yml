@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+  api:
+    build: clientes/.
+    ports:
+      - "8080:8080"
+    links:
+      - mysql
+  mysql:
+    image: maciafranciele/mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - /compose/volume
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
+
+
