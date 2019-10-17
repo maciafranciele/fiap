@@ -1,17 +1,17 @@
 version: '2.2'
 services:
   api:
-    build: clientes/.
+    image: maciafranciele/springbootapi
     ports:
       - "8080:8080"
     links:
       - mysql
+    depends_on:
+      - mysql
   mysql:
-    image: maciafranciele/mysql
+    image: silviofernandesjr/mysql-image2
     ports:
       - "3306:3306"
-    volumes:
-      - /compose/volume
     environment:
       MYSQL_ROOT_PASSWORD: admin
 
